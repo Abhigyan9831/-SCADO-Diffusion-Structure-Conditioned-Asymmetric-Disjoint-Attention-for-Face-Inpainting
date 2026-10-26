@@ -1,0 +1,50 @@
+training:
+  epochs: 50
+  batch_size: 1
+  learning_rate: 1e-4
+  lr_scheduler: cosine
+  warmup_steps: 1000
+  gradient_clip: 1.0
+  mixed_precision: true
+  gradient_checkpointing: true
+  ema_decay: 0.9999
+  log_every: 100
+  save_every: 10
+  val_every: 30
+  num_workers: 4
+  seed: 42
+
+data:
+  image_size: 512
+  train_dir: E:\scado_diffusion_v2\celeba_split\train\faces
+  val_dir: E:\scado_diffusion_v2\celeba_split\val\faces
+  num_landmarks: 7
+
+paths:
+  checkpoint_dir: checkpoints
+  log_dir: logs
+  sample_dir: samples
+
+loss:
+  lambda_sym: 0.1
+  lambda_perceptual: 0.1
+  lambda_adv: 0.01
+
+# Progressive mask curriculum
+mask_curriculum:
+  - epoch: 0
+    min_ratio: 0.10
+    max_ratio: 0.20
+    types: [rectangle]
+  - epoch: 10
+    min_ratio: 0.20
+    max_ratio: 0.40
+    types: [rectangle, freeform]
+  - epoch: 30
+    min_ratio: 0.40
+    max_ratio: 0.60
+    types: [rectangle, freeform, brush]
+  - epoch: 60
+    min_ratio: 0.50
+    max_ratio: 0.70
+    types: [rectangle, freeform, brush, combined]

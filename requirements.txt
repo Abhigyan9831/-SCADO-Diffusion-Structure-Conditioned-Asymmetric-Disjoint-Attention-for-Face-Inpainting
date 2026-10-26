@@ -1,0 +1,27 @@
+# Core
+torch>=2.1.0
+torchvision>=0.16.0
+numpy>=1.24.0
+Pillow>=10.0.0
+PyYAML>=6.0
+
+# Mask generation (freeform / brush strokes)
+opencv-python>=4.8.0
+
+# Logging
+tensorboard>=2.14.0
+
+# Metrics
+scipy>=1.11.0          # FID matrix square-root
+torchmetrics>=1.2.0    # optional cleaner FID
+
+# Visualisation
+matplotlib>=3.7.0
+
+# Optional: faster training
+einops>=0.7.0
+
+# Dev / linting (optional)
+# black
+# isort
+# pytest

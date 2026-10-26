@@ -1,0 +1,42 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Training artifacts & heavy outputs
+checkpoints/
+logs/
+samples/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npy
+*.npz
+
+# Datasets and splits
+data/
+datasets/
+celeba_split/
+*.h5
+*.hdf5
+*.zip
+*.tar.gz
+
+# Environment & IDE
+.env
+.venv/
+env/
+venv/
+ENV/
+.idea/
+.vscode/
+
+# OS specific
+.DS_Store
+Thumbs.db
